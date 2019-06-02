@@ -46,4 +46,6 @@ $router->group(['prefix' => 'api/v1/places'], function($app)
 	$app->put('edit/{id}','PlacesController@update');
 	$app->delete('delete/{id}','PlacesController@destroy');
 	$app->get('index','PlacesController@index');
+    $app->get('bycityid/{id}','PlacesController@getPlacesByCityId');
+    $app->get('bycityname/{name}','PlacesController@getPlacesByCityName');
 });
