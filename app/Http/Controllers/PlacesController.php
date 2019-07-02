@@ -23,7 +23,7 @@ class PlacesController extends Controller
 
     public function index()
     {
-        $places = Places::all();
+        $places = Places::with('city')->get();
         return response()->json($places);
     }
 

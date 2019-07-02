@@ -15,7 +15,11 @@ class CountryController extends Controller
         $country = Country::all();
         return response()->json($country);
     }
-
+    public function getByName($name)
+    {
+        $country = Country::where('name', $name)->get();
+        return response()->json($country);
+    }
     /**
      * 
      */

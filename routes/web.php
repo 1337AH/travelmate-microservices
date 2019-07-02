@@ -22,6 +22,7 @@ $router->group(['prefix' => 'api/v1/country'], function($app)
 	$app->put('edit/{id}','CountryController@update');
 	$app->delete('delete/{id}','CountryController@destroy');
 	$app->get('index','CountryController@index');
+    $app->get('{name}','CountryController@getByName');
 });
 $router->group(['prefix' => 'api/v1/city'], function($app)
 {
@@ -30,6 +31,7 @@ $router->group(['prefix' => 'api/v1/city'], function($app)
 	$app->put('edit/{id}','CityController@update');
 	$app->delete('delete/{id}','CityController@destroy');
 	$app->get('index','CityController@index');
+	$app->get('countryName/{name}','CityController@getCityCountry');
 });
 $router->group(['prefix' => 'api/v1/type'], function($app)
 {

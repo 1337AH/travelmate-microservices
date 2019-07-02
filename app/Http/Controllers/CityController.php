@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,14 @@ class CityController extends Controller
         $city = City::create($request->all());
         return response()->json($city);
     }
+    
+    public function getCityCountry($name)
+    {
+        $city = City::where('name', $name)->first()->country_id;
+        $country = Country::where('id', $city)->first();
+        return response()->json(['city' => $name, 'country' => $country->name]);
 
+    }
     /**
      * 
      */
